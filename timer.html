@@ -1,48 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Time Management</title>
-
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
     <!-- Bootstrap -->
+    <link href="css/timer.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto' rel='stylesheet' type='text/css'>
 	
-		Enter # hours <br> 
-		<input id="time_vals" type="number" name="quantity" min="1" step="1" value="1">
-		<button onclick="setEndTime()">Start</button>
-		<button onclick="stopClock()">Stop</button>
-		<button onclick="pause()"id="start_pause">Pause</button>
-
-
-		<div id="clockdiv">
-				Days: <span class="days"></span><br>
-				Hours: <span class="hours"></span><br>
-				Minutes: <span class="minutes"></span><br>
-				Seconds: <span class="seconds"></span>
-		</div>
-			
-			
-
-	</div>
-	
-	</div>
-	
-	<script src="js/timeScript.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-  </body>
+    <script src="js/timer.js"></script>
+    <script src="js/timer-tracker.js"></script>
+
+    
+</head>
+<body class="apply-fonts" data-spy="scroll" data-target="#pt-navbar-collapse">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                  <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="text-center">
+                                <div id="pomodoroButtonGroup" class="btn-group">
+                                    <a id="pomodoroButton" class="btn btn-default btn-success listen-guestures pt-track-event"
+                                    title="Begin Task"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Begin Task"
+                                    role="button" onclick="onPomodoroTimer()">
+                                    <span class="default-task-label"><i class="fa fa-rocket"></i> <span class="hidden-xtreme">Begin </span>Task</span></a>
+                                    <a id="pomodoroButtonDropdown" class="btn btn-default btn-success dropdown-toggle listen-guestures pt-track-event"
+                                    title="Alternate tasks dropdown"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Begin tasks dropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li id="minute25DropdownItem">
+                                            <a id="minutes25" href="#" onclick="onPomodoroTimer(false)" class="pt-track-event" title="25 minutes - Default Task"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="25 minutes - Default Task">25 minutes - Default Task</a>
+                                        </li>
+                                        <li id="minute55DropdownItem">
+                                            <a id="minutes55" href="#" onclick="onPomodoroTimer(true)" class="pt-track-event" title="55 minutes - Extended Task"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="55 minutes - Extended Task">55 minutes - Extended Task</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="hidden-xs">
+                                    <a id="shortButton" role="button" class="btn btn-default listen-guestures pt-track-event" title="Short Break"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Short Break"
+                                    onclick="onShortTimer()"><i class="fa fa-headphones"></i> Short Break</a>
+                                    <a id="longButton" role="button" class="btn btn-default listen-guestures pt-track-event"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Long Break"
+                                    onclick="onLongTimer()"><i class="fa fa-headphones"></i> Long Break</a>
+                                </span>
+                                <div class="btn-group visible-xs-inline-block">
+                                    <a id="breakButton" class="btn btn-default listen-guestures pt-track-event" title="Take Break"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Take Break"
+                                    role="button" onclick="onShortTimer()">
+                                    <span class="default-break-label"><i class="fa fa-headphones"></i> <span class="hidden-xtreme">Take </span>Break</span></a>
+                                    <a id="breakButtonDropdown" class="btn btn-default dropdown-toggle listen-guestures pt-track-event"
+                                    title="Alternate breaks dropdown"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Take break dropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li id="shortButtonDropdownItem">
+                                            <a id="shortButtonResponsive" href="#" class="pt-track-event" title="05 minutes - Short Break"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="05 minutes - Short Break"
+                                            onclick="onShortTimer()">05 minutes - Short Break</a>
+                                        </li>
+                                        <li id="longButtonDropdownItem">
+                                            <a id="longButtonResponsive" href="#" class="pt-track-event" title="15 minutes - Long Break"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="15 minutes - Long Break"
+                                            onclick="onLongTimer()">15 minutes - Long Break</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="timer-time timer-container text-center col-xs-offset-2 col-xs-8">
+                                    <div class="timer-time-set timer-box" id="currentTime">
+                                        <span id="hoursValue" class="hidden">00</span><span class="hidden">:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+                                    </div>
+                                    <div class="timer-time-set timer-box" id="nextTime">
+                                        <span id="hoursNext" class="hidden">00</span><span class="hidden">:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+                                    </div>
+                                </div>
+                                <div class="timer-bell-container pull-right col-xs-2 text-right">
+                                  <div class="btn-group">
+                                    <button id="settingsButton" type="button" class="btn btn-link btn-xs btn-square-xs dropdown-toggle listen-guestures pt-track-event"
+                                      title="Toggle Notifications Settings"
+                                      data-event-category="button-click" data-event-action="click" data-event-label="Toggle Notifications Settings"
+                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <i class="fa fa-cog fa-lg"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
+                                      <li><button id="alarmButton" class="btn btn-default btn-link btn-xs btn-square-xs listen-guestures pt-track-event"
+                                            title="Toggle Sound Notifications"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="Toggle Sound Notifications"
+                                            role="button" onclick="onSoundToggle()">
+                                            <span class="fa-stack fg-lg">
+                                                <i class="fa fa-bell fa-stack-on fa-stack-1x"></i>
+                                                <i class="fa fa-ban fa-stack-2x fa-stack-off toggle-status"></i>
+                                            </span>
+                                          </button>
+                                      </li>
+                                      <li role="separator" class="divider"></li>
+                                      <li>
+                                        <button id="notifyButton" class="btn btn-default btn-link btn-xs btn-square-xs listen-guestures pt-track-event"
+                                          title="Toggle Desktop Notifications"
+                                          data-event-category="button-click" data-event-action="click" data-event-label="Toggle Desktop Notifications"
+                                          role="button" onclick="onNotifyToggle()">
+                                          <span class="fa-stack fg-lg">
+                                              <i class="fa fa-bullhorn fa-stack-on accent fa-stack-1x"></i>
+                                              <i class="fa fa-ban fa-stack-2x fa-stack-off hidden toggle-status"></i>
+                                          </span>
+                                        </button>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="text-center">
+                                <a id="restartButton" class="btn btn-warning btn-wide listen-guestures hidden pt-track-event" title="Reset timer"
+                                data-event-category="button-click" data-event-action="click" data-event-label="Reset Timer"
+                                role="button"
+                                onclick="onResetTimer()" disabled="disabled">
+                                <i class="fa fa-undo"></i> Reset</a>
+                                <a id="startButton" class="btn btn-primary btn-wide listen-guestures pt-track-event" title="Start timer"
+                                data-event-category="button-click" data-event-action="click" data-event-label="Start Timer"
+                                role="button"
+                                onclick="onStartTimer()" disabled="disabled">
+                                <i class="fa fa-play"></i> Start</a>
+                                <a id="stopButton" class="btn btn-danger btn-wide listen-guestures hidden pt-track-event" title="Pause timer"
+                                data-event-category="button-click" data-event-action="click" data-event-label="Pause timer"
+                                role="button"
+                                onclick="onStopTimer()" disabled="disabled">
+                                <i class="fa fa-pause"></i> Pause</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</body>
 </html>

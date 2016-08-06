@@ -1,0 +1,53 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/todo.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/todo.css">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="todolist not-done">
+				<h1>Your To-dos!</h1>
+				<input id="text_input" type="text" class="form-inline add-todo inputbox" placeholder="Add todo">
+				<button id="addButton" class ="addButton btn glyphicon glyphicon-plus btn-circle btn-lg"></button>
+                    <hr>
+                    <ul id="sortable" class="list-unstyled">
+                    <li class="ui-state-default">
+                        <div class="checkbox">
+							<label>
+                                <input type="checkbox" value="" class="glyphicon glyphicon-ok"/>Study for CSC396 midterm
+							</label>
+                        </div>
+                    </li>
+                    <li class="ui-state-default">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" class="glyphicon glyphicon-ok"/>Get started on CSC463 assignment
+							</label>
+                        </div>
+                    </li>
+                    <li class="ui-state-default">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" class="glyphicon glyphicon-ok"/>Apply to jobs
+							</label>
+                        </div>
+                    </li>
+                </ul>
+                <div class="todo-footer">
+                    <strong><span class="count-todos"></span></strong> Items Left
+                </div>
+				<button id="checkAll" class="btn btn-success"><span class="glyphicon glyphicon-trash"></span>      All</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="todolist">
+             <h1>Already Done</h1>
+                <ul id="done-items" class="list-unstyled">
+                    <li>Some item <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

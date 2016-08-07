@@ -1,4 +1,7 @@
 /* adjust body when menu is open */
+html {
+	font-family: 'Open Sans', sans-serif;
+}
 body {
 	overflow:hidden;
 	max-width: 680px;
@@ -135,10 +138,17 @@ body.slide-active {
 	}
 }
 
+.social-media{
+	width: 4rem;
+}
 
 
-
-
-
-
+div .footer{
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	padding-top:10em;
+	padding-bottom:1em;
+}
 

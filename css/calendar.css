@@ -154,6 +154,7 @@ table {
 
 .event_events {
 	display: inline-block;
+	font-weight: bold;
 }
 
 .event_edit {
@@ -168,4 +169,19 @@ table {
 
 .events_bottom {
 	margin-bottom: 5%;
+	height:10rem; 
+	overflow:scroll;
+	background-color: rgba(242, 242, 242, 0.5);
+}
+
+.events_bottom table{
+	width: 100%;
+}
+
+.events_bottom tr{
+	border-bottom: 1px solid #cbd1d2;
+}
+
+.events_bottom td{
+	padding: 0.8em;
 }

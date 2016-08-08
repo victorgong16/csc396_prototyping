@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar</title>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/todo.js"></script>
+	<link rel="stylesheet" href="css/calendar.css">
+	
+</head>
+<body>
+
+	<div class="container">
+		<div class="calendar">
+			<header>				
+				<h2>August</h2>
+				<a class="btn-prev fontawesome-angle-left" href="#"></a>
+				<a class="btn-next fontawesome-angle-right" href="#"></a>
+			</header>
+			
+			<table>			
+				<thead>					
+					<tr>						
+						<td>Mon</td>
+						<td>Tue</td>
+						<td>Wed</td>
+						<td>Thu</td>
+						<td>Fri</td>
+						<td>Sat</td>
+						<td>Sun</td>
+					</tr>
+				</thead>
+				<tbody>					
+					<tr>
+						<td class="prev-month">25</td>
+						<td class="prev-month">26</td>
+						<td class="prev-month">27</td>
+						<td class="prev-month">28</td>
+						<td class="prev-month">29</td>
+						<td class="prev-month">30</td>
+						<td class="prev-month">31</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+					</tr>
+					<tr>
+						<td class="event">8</td>
+						<td>9</td>
+						<td class="event">10</td>
+						<td>11</td>
+						<td>12</td>
+						<td>13</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td>16</td>
+						<td>17</td>
+						<td>18</td>
+						<td>19</td>
+						<td>20</td>
+						<td class="current-day event"><a href="calendar_edit.html">21</a></td>
+					</tr>
+
+					<tr>
+						<td>22</td>
+						<td>23</td>
+						<td>24</td>
+						<td>25</td>
+						<td>26</td>
+						<td>27</td>
+						<td>28</td>
+					</tr>
+					<tr>
+						<td>29</td>
+						<td>30</td>
+						<td class="next-month">1</td>
+						<td class="next-month">2</td>
+						<td class="next-month">3</td>
+						<td class="next-month">4</td>
+						<td class="next-month">5</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> <!-- end calendar -->
+		
+		
+		<div>
+			<a href="calendar_edit.html" class="event_edit"><img src="event_edit.png"></a>
+			<p class="event_events">Events</p>
+			<a href="calendar_add.html" class="event_add"><img src="event_add.png"></a>
+		</div>
+		
+		<div class="events_bottom">
+			<table>			
+				<thead>					
+					<tr>						
+						<td>12:30 PM</td>
+						<td>Band rehearsals</td>
+					</tr>
+					<tr>						
+						<td>4:00 PM</td>
+						<td>Groceries</td>
+					</tr>
+					<tr>
+						<td>6:15 PM</td>
+						<td>Volleyball Practice</td>
+				</thead>
+			</table>
+		</div>
+		
+	</div>
+	</div> <!-- end container -->
+	
+	
+
+</body>
+</html>

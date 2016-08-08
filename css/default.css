@@ -140,15 +140,30 @@ body.slide-active {
 
 .social-media{
 	width: 4rem;
+	margin-bottom: 1rem;
 }
 
 
-div .footer{
-	position: relative;
-	width: 50%;
-	margin: 0 auto;
+
+#slidemenu-footer {
+	position:fixed;
+	bottom:0px;
+	width:80%;
 	text-align: center;
-	padding-top:10em;
-	padding-bottom:1em;
+}
+
+@media (min-width:768px) { 
+	#page-content {
+	    left: 0!important
+	}
+	.navbar.navbar-fixed-top.slide-active {
+	    position: fixed
+	}
+	.navbar-header {
+	    left: 0!important
+	}
+	#slidemenu-footer {
+		display:none !important;
+	}
 }
 

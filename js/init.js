@@ -35,7 +35,9 @@
 	    /**************/
 	    $("#slidemenu").on("click", 'a', function (e) {
 	    	var id=$(this).attr('id');
-	    	$("#slide-nav .navbar-toggle").click();
+	    	$(this).closest('ul').find('li').removeClass('active');
+	    	$(this).closest('li').addClass('active');
+	    	$("#slide-nav .navbar-toggle").trigger('click');
 	    	$('#page-content iframe').attr('src', id+'.html');
 	    });
 

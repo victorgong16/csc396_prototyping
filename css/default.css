@@ -144,6 +144,13 @@ body.slide-active {
 }
 
 
+#logo{
+	position: relative;
+	left: 50%;
+	margin-left:-105px; 
+	width: 40%;
+	margin-bottom: 4rem;
+}
 
 #slidemenu-footer {
 	position:fixed;
@@ -162,8 +169,22 @@ body.slide-active {
 	.navbar-header {
 	    left: 0!important
 	}
-	#slidemenu-footer {
+	#slidemenu-footer, #logo {
 		display:none !important;
 	}
+}
+
+a.loginicon{
+	position:fixed;
+	right:4px;
+	color:rgba(255,255,255,1) !important; 
+	margin-top:0.5rem;
+}
+a.loginicon:hover{
+	color: rgba(51, 122, 183, 0.8);
+}
+
+.material-icons{
+	margin: 0.5rem;
 }
 

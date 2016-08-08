@@ -4,11 +4,11 @@
 
 html {
   overflow-y: scroll;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
   background: #c1bdba;
-  font-family: 'Titillium Web', sans-serif;
 }
 
 a {
@@ -22,7 +22,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9);
+  background: rgba(51, 51, 51, 0.9);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;

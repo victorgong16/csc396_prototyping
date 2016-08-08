@@ -7,7 +7,7 @@ body {
 }
 
 body.apply-fonts {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-light {
@@ -258,3 +258,4 @@ p.text-indent-lg {
     text-align: center;
 
 }
+
